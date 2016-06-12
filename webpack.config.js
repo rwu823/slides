@@ -4,6 +4,8 @@ const isDev = process.env.NODE_ENV !== 'production'
 const pkg = require('./package.json')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
+console.log({isDev, slideName})
+
 module.exports = {
   slideName,
   devtool: isDev ? 'eval': '',

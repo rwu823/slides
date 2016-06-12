@@ -4,7 +4,7 @@
   "description": "",
   "main": "./",
   "scripts": {
-    "build": "NODE_ENV=production webpack",
+    "build": "NODE_ENV=production babel-node ./scripts/build",
     "start": "NODE_ENV=development node server.js",
     "dev": "babel-node ./scripts/dev",
     "gh-pages": "babel-node ./scripts/gh-pages"

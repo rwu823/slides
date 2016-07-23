@@ -1,21 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width initial-scale=1 user-scalable=no" />
-  <title>Rock Alfred in NodeJS</title>
-  <link href="//fonts.googleapis.com/css?family=Lobster+Two:400,700" rel="stylesheet" />
-  <link href="//fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700" rel="stylesheet" />
-  <link href="//cdn.jsdelivr.net/prism/1.5.1/themes/prism-tomorrow.css" rel="stylesheet" />
-  <script src="//cdn.jsdelivr.net/prism/1.5.1/prism.js"></script>
-  <script async src="//cdn.jsdelivr.net/prism/1.5.1/components/prism-jsx.min.js"></script>
-  <script async src="//cdn.jsdelivr.net/prism/1.5.1/components/prism-css.min.js"></script>
-  <script async src="//cdn.jsdelivr.net/prism/1.5.1/components/prism-javascript.min.js"></script>
-  <script async src="//cdn.jsdelivr.net/prism/1.5.1/components/prism-bash.min.js"></script>
-  <script src="../lib.js"></script>
-</head>
-<body>
-  <div id="root"></div>
-  <script src="./index.js"></script>
+<link href="//npmcdn.com/reveal.js@3.3.0/css/reveal.css" rel="stylesheet" />
+<link href="//npmcdn.com/reveal.js@3.3.0/css/theme/black.css" rel="stylesheet" />
+<style>
+  .reveal section img {
+    border: none;
+    background: none;
+  }
+
+  .reveal section h1 {
+    text-transform: inherit;
+  }
+</style>
+<body style="background:#440960;color:#eee;">
+  <div class="reveal">
+    <div class="slides">
+      <section >
+        <img src="./alfred+node.png" />
+        <h1>Rock Alfred in NodeJS</h1>
+        <div>- Rocky Wu</div>
+      </section>
+
+      <section>
+        <h2>Alfred Workflow</h2>
+        <p class="fragment" data-fragment-index="0">HotKey</p>
+        <p class="fragment" data-fragment-index="1">HotInput</p>
+      </section>
+
+      <section>
+        <h2>Alfred Hot Inputs</h2>
+        <img src="./alfred-inputs.png" style="width:500px;"/>
+      </section>
+
+      <section>
+        <h2>Alfred Hot Inputs</h2>
+        <p>Keyword</p>
+        <img src="./hotinputs-keyword.png" />
+      </section>
+
+      <section >
+        <section data-transition="fade-in">
+          <h2>Alfred Hot Inputs</h2>
+          <p>Script Filter</p>
+          <img src="./hotinputs-script-filter.png" style="width: 600px;" />
+        </section>
+        <section data-transition="fade-in">
+          <h2>Alfred Hot Inputs</h2>
+          <p>Script Filter</p>
+          <img src="./hotinputs-script-filter-x.png" style="width: 600px;" />
+        </section>
+        <section data-transition="fade-in">
+          <p>How to run workflow in NodeJS</p>
+          <pre>
+            <code data-trim data-noescape>
+/usr/bin/env node <<-'CODE'
+  const q = <mark>'{query}'</mark>
+  const res = {
+    items: [
+      {
+        title: q,
+        subtitle: `subtitle ${q}`,
+      }
+    ]
+  }
+  <mark>console.log(JSON.stringify(res))</mark>
+CODE
+            </code>
+          </pre>
+        </section>
+
+        <section data-transition="fade-in">
+          <p>How is require?</p>
+          <pre>
+            <code data-trim data-noescape>
+/usr/bin/env node <<-'CODE'
+  <mark>require('./')</mark>
+CODE
+            </code>
+          </pre>
+        </section>
+
+        <section data-transition="fade-in">
+          <p>How is require?</p>
+          <pre>
+            <code data-trim data-noescape>
+/usr/bin/env node <<-'CODE'
+  require('./')(<mark>'{query}'</mark>)
+CODE
+            </code>
+          </pre>
+        </section>
+      </section>
+
+      <section>
+        <h1>Demo</h1>
+        <p>IMDB query movies stars</p>
+      </section>
+    </div>
+  </div>
+
+  <script src="//npmcdn.com/reveal.js@3.3.0"></script>
+  <script>
+    Reveal.initialize({
+      history: true
+    });
+  </script>
 </body>
-</html>
